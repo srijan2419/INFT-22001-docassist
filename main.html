@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+    <!-- head section for metadata, CSS, and JS regarding the site -->
+    <head>
+        <!-- section for metadata -->
+        <!-- outlines the character set and viewport for the site -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- outlines the title, author, description, and index rules for the site -->
+        <title>INFT-22001-01 Final Front End</title>
+        <meta name="author" content="Noah">
+        <meta name="description" content="front-end for expert gpt tool">
+        <meta name="robots" content="noindex, nofollow">
+
+        <!-- section for CSS -->
+        <style>
+            html, body{
+                width: 100%;
+                height: 100%;
+
+                margin: 0;
+                padding: 0;
+
+                overflow: hidden;
+
+                background-color: black;
+            }
+            /* section 1 site_container */
+            #site_container{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                background-color: #232323;
+                animation: changebgcolour 5s infinite alternate;
+            }
+            /* keyframes for background colour animation */
+            @keyframes changebgcolour{
+                0%{background-color: #00100a;}
+                100%{background-color: #001002;}
+            }
+                /* section 2 site_header */
+                #site_header{
+                    display: flex;
+                    justify-content: left;
+                    padding: 10px;
+                    background-color: rgba(13, 13, 13, 0.5);
+                    color: green;
+                }
+                /* section 3 site_body */
+                #site_body{
+                    margin: 10px;
+                    height: 100%;
+
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+
+                    justify-content: center;
+                }
+                    /* section 3.1 animations_container_left */
+                    #animations_container_left{
+                        margin: 10px;
+                        flex-grow: 1;
+                        color: green;
+                        display: flex;
+                        flex-direction: row;
+
+                    }
+                    .r1{
+                        flex-grow: 1;
+                        display: flex;
+                        flex-direction: column;
+                        margin: 10px;
+                    }
+                    .r2{
+                        flex-grow: 1;
+                        display: flex;
+                        flex-direction: column;
+                        margin: 10px;
+                    }
+                    .r3{
+                        flex-grow: 1;
+                        display: flex;
+                        flex-direction: column;
+                        margin: 10px;
+                    }
+                    .c1{
+                        display: flex;
+                        flex-grow: 1;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 10px;
+                        color: green;
+                    }
+                    .c2{
+                        display: flex;
+                        flex-grow: 1;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 10px;
+                        color: green;
+                    }
+                    .c3{
+                        display: flex;
+                        flex-grow: 1;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 10px;
+                        color: green;
+                    }
+                    .c4{
+                        display: flex;
+                        flex-grow: 1;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 10px;
+                        color: green;
+                    }
+                    .c5{
+                        display: flex;
+                        flex-grow: 1;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 10px;
+                        color: green;
+                    }
+
+                    /* section 3.2 main_content */
+                    #main_content{
+                        min-width: 450px;
+                        max-width: 650px;
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: nowrap;
+                        flex-grow: 2;
+                    }
+                        /* section 3.2.1 outputbox */
+                        #outputbox{
+                            display: flex;
+                            flex-grow: 1;
+                            margin: 10px;
+                            padding: 10px;
+                            border-radius: 15px;
+
+                            background-color: rgba(13, 13, 13, 0.5);
+                        }
+                        #output{
+                            flex-grow: 1;
+                            max-height: 59vh;
+                            padding: 5px;
+
+                            border-width: 1px;
+                            border-style: solid;
+                            border-radius: 5px;
+
+                            overflow-y: scroll;
+
+                            color:green;
+                            border-color: #323232;                           
+                        }
+                        .i {
+                            display: flex;
+                            justify-content: flex-end;
+                        }
+                        .r {
+                            display: flex;
+                            justify-content: flex-start;
+                        }
+                        .wrap{
+                            word-wrap: break-word;
+                            padding: 10px;
+                            background-color: #1f1f1f;
+                            border-radius: 10px;
+                            max-width: 75%;
+                        }
+                        #output::-webkit-scrollbar {
+                            background-color: inherit;
+                            width: 8px;
+                            margin: 2px;
+                        }
+                        #output::-webkit-scrollbar-thumb {
+                            background-color: green;
+                            border-radius: 5px;
+                        }
+                        /* section 3.2.2 prompt */
+                        #prompt{
+                            height: 50px;
+                            margin: 10px;
+                            padding: 10px;
+
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+
+                            border-radius: 15px;
+
+                            background-color: rgba(13, 13, 13, 0.5);
+                            color: green;
+                        }
+                            /* section 3.2.2.1-2 prompt textbox and button */
+                            #textbox{
+                                width: 100%;
+
+                                border-width: 1px;
+                                border-style: solid;
+                                border-radius: 5px;
+
+                                color: green;                                
+                                border-color: #323232;
+                                background-color: inherit;
+                            }
+                            #textbox:focus {
+                                outline: none;
+                            }
+                            #submitbtn{
+                                border-width: 1px;
+                                border-style: solid;
+                                border-radius: 5px;
+
+                                color: green;                                
+                                background-color: inherit;
+                                border-color: #323232;
+                            }
+                    /* section 3.3 animations_container_right */
+                    #animations_container_right{
+                        margin: 10px;
+
+                        flex-grow: 1;
+                        color: green;
+                        display: flex;
+                        flex-direction: row;
+                    }
+                /* section 4 site_footer */
+                #site_footer{
+                    padding: 10px;
+                    display: flex;
+                    justify-content: flex-end;
+                    color: green;
+                    background-color: rgba(13, 13, 13, 0.5);
+                }
+        </style>
+
+        <!-- section for JS -->
+        <script>
+
+            //object for json data
+            var conData = {
+                userInput:"sampleUserInput",
+                response:"sampleResponse"
+            }
+
+            function takeInput() {
+                // var uInput = document.getElementById("textbox").value;
+                var outputbox = document.getElementById("output");
+
+                conData["userInput"] = document.getElementById("textbox").value;
+
+                //take the users input
+                outputbox.innerHTML += `<div class="i"><p class="wrap">User: ${conData["userInput"]}</p></div>`;
+                document.getElementById("textbox").value = "";
+
+                //starts the get response function
+                getResponse(conData["userInput"])
+            }
+            function getResponse(uInput) {
+                var outputbox = document.getElementById("output");
+                //var response = "placeholder text";
+
+                
+                outputbox.innerHTML += `<div class="r"><p class="wrap">ExpertGPT: ${conData["response"]}</p></div>`;
+                outputbox.scrollTop = outputbox.scrollHeight;
+            }
+
+
+            function flipg1(){
+                var group1 = document.getElementsByClassName("g1");
+                for (i = 0; i < group1.length; i++){
+                    if (group1[i].innerHTML == '<p>0</p>'){
+                        group1[i].innerHTML = '<p>1</p>';
+                    }
+                    else{
+                        group1[i].innerHTML = '<p>0</p>';
+                    }
+                }
+               
+            }
+            const intervalg1 = setInterval(flipg1, 1000);
+            function flipg2(){
+                var group2 = document.getElementsByClassName("g2");
+                for (i = 0; i < group2.length; i++){
+                    if (group2[i].innerHTML == '<p>0</p>'){
+                        group2[i].innerHTML = '<p>1</p>';
+                    }
+                    else{
+                        group2[i].innerHTML = '<p>0</p>';
+                    }
+                    
+                }
+               
+            }
+            const intervalg2 = setInterval(flipg2, 1500);
+            function flipg3(){
+                var group3 = document.getElementsByClassName("g3");
+                for (i = 0; i < group3.length; i++){
+                    if (group3[i].innerHTML == '<p>0</p>'){
+                        group3[i].innerHTML = '<p>1</p>';
+                    }
+                    else{
+                        group3[i].innerHTML = '<p>0</p>';
+                    }
+                    
+                }
+               
+            }
+            const intervalg3 = setInterval(flipg3, 1250);
+            function flipg4(){
+                var group4 = document.getElementsByClassName("g4");
+                for (i = 0; i < group4.length; i++){
+                    if (group4[i].innerHTML == '<p>0</p>'){
+                        group4[i].innerHTML = '<p>1</p>';
+                    }
+                    else{
+                        group4[i].innerHTML = '<p>0</p>';
+                    }
+                    
+                }
+               
+            }
+            const intervalg4 = setInterval(flipg4, 2000);
+            function flipg5(){
+                var group5 = document.getElementsByClassName("g5");
+                for (i = 0; i < group5.length; i++){
+                    if (group5[i].innerHTML == '<p>0</p>'){
+                        group5[i].innerHTML = '<p>1</p>';
+                    }
+                    else{
+                        group5[i].innerHTML = '<p>0</p>';
+                    }
+                    
+                }
+               
+            }
+            const intervalg5 = setInterval(flipg5, 1100);
+        </script>
+    </head>
+    <!-- body section for site content -->
+    <body>
+        <!-- sites elements container -->
+        <div id="site_container">
+            <!-- header elements container -->
+            <div id="site_header">
+                <h1>ExpertGPT</h1>
+            </div>
+            <!-- body elements container -->
+            <div id="site_body">
+                <!-- contains animations for left side of screen -->
+                <div id="animations_container_left">
+                    <div class="r1">
+                        <div class="c1 g1">
+                            <p>1</p>
+                        </div>
+                        <div class="c2 g3">
+                            <p>0</p>
+                        </div>
+                        <div class="c3 g5">
+                            <p>1</p>
+                        </div>
+                        <div class="c4 g1">
+                            <p>0</p>
+                        </div>
+                        <div class="c5 g4">
+                            <p>1</p>
+                        </div>
+                    </div>
+                    <div class="r2">
+                        <div class="c1 g2">
+                            <p>0</p>
+                        </div>
+                        <div class="c2 g4">
+                            <p>0</p>
+                        </div>
+                        <div class="c3 g5">
+                            <p>1</p>
+                        </div>
+                        <div class="c4 g2">
+                            <p>1</p>
+                        </div>
+                        <div class="c5 g3">
+                            <p>1</p>
+                        </div>
+                    </div>
+                    <div class="r3">
+                        <div class="c1 g5">
+                            <p>1</p>
+                        </div>
+                        <div class="c2 g3">
+                            <p>1</p>
+                        </div>
+                        <div class="c3 g1">
+                            <p>0</p>
+                        </div>
+                        <div class="c4 g4">
+                            <p>1</p>
+                        </div>
+                        <div class="c5 g2">
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- container for main content -->
+                <div id="main_content">
+                    <div id="outputbox">
+                        <div id="output"></div>
+                    </div>
+                    <div id="prompt">
+                        <input id="textbox" type="text">
+                        <button id="submitbtn" type="button" onclick="takeInput()">Enter</button>
+                    </div>
+                </div>
+                <!-- contains animations for right side of screen -->
+                <div id="animations_container_right">
+                    <div class="r1">
+                        <div class="c1 g1">
+                            <p>1</p>
+                        </div>
+                        <div class="c2 g3">
+                            <p>0</p>
+                        </div>
+                        <div class="c3 g5">
+                            <p>1</p>
+                        </div>
+                        <div class="c4 g1">
+                            <p>0</p>
+                        </div>
+                        <div class="c5 g4">
+                            <p>1</p>
+                        </div>
+                    </div>
+                    <div class="r2">
+                        <div class="c1 g2">
+                            <p>0</p>
+                        </div>
+                        <div class="c2 g4">
+                            <p>0</p>
+                        </div>
+                        <div class="c3 g5">
+                            <p>1</p>
+                        </div>
+                        <div class="c4 g2">
+                            <p>1</p>
+                        </div>
+                        <div class="c5 g3">
+                            <p>1</p>
+                        </div>
+                    </div>
+                    <div class="r3">
+                        <div class="c1 g5">
+                            <p>1</p>
+                        </div>
+                        <div class="c2 g3">
+                            <p>1</p>
+                        </div>
+                        <div class="c3 g1">
+                            <p>0</p>
+                        </div>
+                        <div class="c4 g4">
+                            <p>1</p>
+                        </div>
+                        <div class="c5 g2">
+                            <p>0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer elements container -->
+            <div id="site_footer">
+                <p>ExpertGPT</p>
+            </div>
+        </div>
+    </body>
+</html>
